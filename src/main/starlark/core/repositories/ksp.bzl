@@ -21,7 +21,12 @@ def _ksp_compiler_plugin_repository_impl(repository_ctx):
             "{jar}.jar".format(jar = jar),
         ]
         repository_ctx.execute(args, quiet = False)
+        repository_ctx.file(
+            "get_{jar}.sh".format(jar = jar),
+            content = "mv com/google/devtools/ksp/{jar}/{version}/{jar}-{version}.jar {jar}.jar".format(jar = jar, version = attr.strip_version)
+        )
     #repository_ctx.delete("com")
+
 
     repository_ctx.file(
         "WORKSPACE",
