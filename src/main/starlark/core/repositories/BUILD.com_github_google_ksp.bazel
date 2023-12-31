@@ -14,7 +14,14 @@
 package(default_visibility = ["//visibility:public"])
 
 # KSP filegroup containing everything that might be needed
+
+#
+
 filegroup(
     name = "ksp",
-    srcs = glob(["**"]),
+    srcs = [
+        "symbol-processing.jar",
+        "symbol-processing-api.jar",
+        "symbol-processing-cmdline.jar",
+    ]
 )
