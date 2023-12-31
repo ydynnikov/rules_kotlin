@@ -21,7 +21,7 @@ def _ksp_compiler_plugin_repository_impl(repository_ctx):
             "{jar}.jar".format(jar = jar),
         ]
         repository_ctx.execute(args, quiet = False)
-    repository_ctx.delete("com")
+    #repository_ctx.delete("com")
 
     repository_ctx.file(
         "WORKSPACE",
