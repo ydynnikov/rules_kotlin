@@ -27,9 +27,10 @@ def _ksp_compiler_plugin_repository_impl(repository_ctx):
             content = "mv com/google/devtools/ksp/{jar}/{version}/{jar}-{version}.jar {jar}.jar".format(jar = jar, version = attr.strip_version),
         )
 
-        repository_ctx.execute(
+        repository_ctx.execute([
             "sh",
-            scriptfile
+            scriptfile,
+            ]
         )
 
 
